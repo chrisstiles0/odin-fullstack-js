@@ -1,3 +1,17 @@
+:root {
+    --green: #596D48;
+    --grey: rgb(250, 250, 250);
+}
+
+
+body {
+    margin: 0px;
+    padding: 0px;
+
+    display: flex;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 
 #logo-container {
     background-image: url('./images/background.jpg');
@@ -6,4 +20,35 @@
 
 #logo {
     color: white;
+    background-color: rgba(0,0,0,0.25);
+
+    display: flex;
+    align-items: center;
+}
+
+#photo-credit, #photo-credit a {
+    color: white;
+}
+
+#form-container {
+    background-color: var(--grey);
+}
+
+#form {
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+}
+
+#form-buttons button {
+    color: white;
+    font-weight: 600;
+    background-color: var(--green);
+    border: transparent;
+    border-radius: 4px;
+}
+
+#form-buttons a {
+    color: var(--green);
+    text-decoration: none;
+    font-weight: 600;
 }
