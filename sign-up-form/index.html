@@ -31,19 +31,41 @@
             </p>
         </div>
 
-        <div id="form">
-            <h2>Let's do this!</h2>
-            <form>
-                
-            </form>
-        </div>
+        <form action="#" method="get">
+            <div id="form-fields">
+                <h2>Let's do this!</h2>
+                <div>
+                    <labal for="first-name">First name</labal>
+                    <input type="text" id="first-name">
+                    <label for="last-name">Last name</label>
+                    <input type="text" id="last-name">
+                </div>
+                <div>
+                    <label for="email-address">Email</label>
+                    <input type="email" id="email-address">
+                    <label for="phone-number">Phone Number</label>
+                    <input pattern="
+                        ^(?:(?:\(?(?:00|\+)([1-4]\d\d|[1-9]\d?)\)?)?[\-\.\ \\\/]?)?((?:\(?\d{1,}\)?[\-\.\ 
+                        \\\/]?){0,})(?:[\-\.\ \\\/]?(?:#|ext\.?|extension|x)[\-\.\ \\\/]?(\d+))?$" 
+                        id="first-name">
+                </div>
+                <div>
+                    <label for="password">Password</label>
+                    <input type="password" id="password">
+                    <label for="password-confirm">Confirm Password</label>
+                    <input type="password" id="password-confirm">
+                </div>
 
-        <div id="form-buttons">
-            <button>Create Account</button>
-            <p>
-                Already have an account? <a href="">Log in</a>
-            </p>
-        </div>
+            </div>
+
+            <div id="form-buttons">
+                <button type="submit">Create Account</button>
+                <p>
+                    Already have an account? <a href="">Log in</a>
+                </p>
+            </div>
+
+        </form>
 
     </div>
 

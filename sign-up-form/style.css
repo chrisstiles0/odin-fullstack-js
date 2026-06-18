@@ -1,5 +1,6 @@
 :root {
     --green: #596D48;
+    --light-green:#748862;
     --grey: rgb(250, 250, 250);
 }
 
@@ -34,7 +35,7 @@ body {
     background-color: var(--grey);
 }
 
-#form {
+#form-fields {
     background-color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
 }
@@ -46,6 +47,11 @@ body {
     border: transparent;
     border-radius: 4px;
 }
+
+#form-buttons button:hover {
+    background-color: var(--light-green);
+}
+
 
 #form-buttons a {
     color: var(--green);
