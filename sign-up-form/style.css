@@ -13,6 +13,12 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+input {
+    border: 1px solid #cfcfcf;
+    border-radius: 4px;
+    padding: 4px;
+}
+
 
 #logo-container {
     background-image: url('./images/background.jpg');
@@ -35,10 +41,33 @@ body {
     background-color: var(--grey);
 }
 
+#form-header {
+    font-size: 20px;
+    font-weight: 500;
+}
+
 #form-fields {
     background-color: white;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1); 
 }
+
+.input-row {
+    display: flex;
+    margin-bottom: 12px;
+}
+
+.input-field {
+    display: flex;
+    flex-direction: column;
+    padding-right: 50px;
+}
+
+.input-field label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
 
 #form-buttons button {
     color: white;
@@ -46,6 +75,9 @@ body {
     background-color: var(--green);
     border: transparent;
     border-radius: 4px;
+    padding: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
 #form-buttons button:hover {
