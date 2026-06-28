@@ -1,0 +1,56 @@
+:root {
+    --blue:rgb(67, 146, 219);
+    --yellow: rgb(255, 208, 0);
+    --gray: rgb(211, 211, 211);
+}
+
+body {
+    margin: 0;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--gray);
+}
+
+.sidebar {
+    background-color: var(--blue);
+    color: white;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 240px;
+    height: 100vh;
+    padding: 12px;
+
+    z-index: 1;
+    overflow-x: hidden;
+}
+
+.view-dashboard {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 56px;
+}
+
+nav a {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.icon { 
+    filter: invert(100%);
+    width: 36px;
+    height: 36px;
+}
