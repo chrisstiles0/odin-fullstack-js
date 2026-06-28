@@ -1,5 +1,6 @@
 :root {
     --blue:rgb(67, 146, 219);
+    --lightblue: rgb(116, 182, 243);
     --yellow: rgb(255, 208, 0);
     --gray: rgb(211, 211, 211);
 }
@@ -10,32 +11,48 @@ body {
     background-color: var(--gray);
 }
 
+
+/* SIDEBAR */
+
 .sidebar {
     background-color: var(--blue);
     color: white;
 
     position: fixed;
+    box-sizing: border-box;
     top: 0;
     left: 0;
     width: 240px;
     height: 100vh;
-    padding: 12px;
 
     z-index: 1;
     overflow-x: hidden;
 }
+
 
 .view-dashboard {
     display: flex;
     align-items: center;
     gap: 12px;
     margin-bottom: 24px;
+    width: 100%;
+
+    background-color: var(--blue);
+    color: white;
+    border: none;
+}
+
+.view-dashboard:hover {
+    background-color: var(--lightblue);
+}
+
+.view-dashboard:active {
+    background-color: var(--blue);
 }
 
 nav {
     display: flex;
     flex-direction: column;
-    gap: 12px;
     margin-bottom: 56px;
 }
 
@@ -47,10 +64,32 @@ nav a {
     color: white;
     font-size: 18px;
     font-weight: 600;
-}
-
-.icon { 
-    filter: invert(100%);
-    width: 36px;
+    padding-left: 16px;
     height: 36px;
 }
+
+nav a:hover {
+    background-color: var(--lightblue);
+}
+
+nav a:active {
+    background-color: var(--blue);
+}
+
+.generic-icon { 
+    filter: invert(100%);
+    width: 24px;
+    height: 24px;
+}
+
+#dashboard-icon {
+    width: 52px;
+    height: 52px;
+}
+
+
+
+
+
+/* TOP PANEL */
+
