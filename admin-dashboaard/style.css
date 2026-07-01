@@ -237,7 +237,11 @@ button {
 .cards-container {
     padding: 30px 40px;
     overflow-y: auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
 }
+
 
 .projects h3 {
     font-size: 20px;
@@ -282,4 +286,10 @@ button {
     height: 24px;
     background-color: transparent;
     filter: invert(20%)
+}
+
+.right-side-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
