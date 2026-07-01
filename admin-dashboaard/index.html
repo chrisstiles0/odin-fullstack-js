@@ -3,49 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
+    <title>Dashboard</title>
     <link rel="stylesheet" href="style.css">
-
 </head>
 <body>
 
-    <!-- Sidenav -->
-    <aside class="sidebar">
+    <div class="container">
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <button class="sidebar-header">
+                <img src="images/menu.svg" width="50" height="50">
+                <h1>Dashboard</h1>
+            </button>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#home"><img src="images/home.svg">Home</a></li>
+                    <li><a href="#profile"><img src="images/profile.svg">Profile</a></li>
+                    <li><a href="#messages"><img src="images/message.svg">Messages</a></li>
+                    <li><a href="#history"><img src="images/clock-outline.svg">History</a></li>
+                    <li><a href="#tasks"><img src="images/clipboard-edit.svg">Tasks</a></li>
+                    <li><a href="#communities"><img src="images/account-group-outline.svg">Communities</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#settings"><img src="images/cog-box.svg">Settings</a></li>
+                    <li><a href="#support"><img src="images/chat-question.svg">Support</a></li>
+                    <li><a href="#privacy"><img src="images/shield-check.svg">Privacy</a></li>
+                </ul>
+            </nav>
+        </aside>
 
-        <button class="view-dashboard">
-            <img src="images/view-dashboard.svg" class="generic-icon" id="dashboard-icon" width="50" height="50">
-            <h1>Dashboard</h1>
-        </button>
+        <!-- MAIN CONTENT -->
+        <div class="main-content">
+            <!-- TOP PANEL -->
+            <header class="top-panel">
+                <div class="top-row">
+                    <div class="search-bar">
+                        <button><img src="images/magnify.svg"></button>
+                        <input type="text" placeholder="Search...">
+                    </div>
+                    <div class="top-panel-right">
+                        <button class="notification-btn"><img src="images/bell-ring.svg"></button>
+                        <div class="user-profile">
+                            <a href="#profile"><img src="images/placeholder-profile-picture.png" id="avatar-small"></a>
+                            <span class="username">Morgan Oakley</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom-row">
+                    <img src="images/placeholder-profile-picture.png" id="avatar-big">
+                    <div class="greeting">
+                        <p>Hi there,</p>
+                        <h2>Morgan Oakley (@morgan)</h2>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn btn-primary">New</button>
+                        <button class="btn btn-primary">Upload</button>
+                        <button class="btn btn-primary">Share</button>
+                    </div>
+                </div>
+            </header>
 
-        <nav class="primary-nav">
-            <a href="#"><img src="images/home.svg" class="generic-icon">Home</a>
-            <a href="#"><img src="images/profile.svg" class="generic-icon">Profile</a>
-            <a href="#"><img src="images/message.svg" class="generic-icon">Messages</a>
-            <a href="#"><img src="images/clock-outline.svg" class="generic-icon">History</a>
-            <a href="#"><img src="images/clipboard-edit.svg" class="generic-icon">Tasks</a>
-            <a href="#"><img src="images/account-group-outline.svg" class="generic-icon">Communities</a>
-        </nav>
-
-        <nav class="secondary-nav">
-            <a href="#"><img src="images/cog-box.svg" class="generic-icon">Settings</a>
-            <a href="#"><img src="images/chat-question.svg" class="generic-icon">Support</a>
-            <a href="#"><img src="images/shield-check.svg" class="generic-icon">Privacy</a>
-        </nav>
-
-    </aside>
-
-
-    <!-- TOP PANEL -->
-    <main class="top-panel">
-
-        <div>
-
-        </div>
-        <div>
             
         </div>
-
-    </main>
-
+    </div>
 </body>
 </html>
