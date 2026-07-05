@@ -5,6 +5,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    word-break: break-all;
 }
 
 :root {
@@ -243,7 +244,7 @@ button {
 }
 
 
-.projects h3 {
+.projects h3, .right-side-cards h3{
     font-size: 20px;
     margin-bottom: 20px;
 }
@@ -288,8 +289,48 @@ button {
     filter: invert(20%)
 }
 
+/* ==================== */
+
 .right-side-cards {
     display: flex;
     flex-direction: column;
     gap: 30px;
+}
+
+.announcements-section h3,
+.trending-section h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.announcements-cards-container,
+.trending-cards-container {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    max-width: 500px;
+}
+
+.announcement-card {
+    border-bottom: 1px solid var(--gray);
+    padding-bottom: 15px;
+}
+
+.announcement-card:last-child {
+    border-bottom: none;
+    padding-bottom: 0px;
+}
+
+.announcement-card h5 {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.announcement-card p {
+    font-size: 14px;
+    color: var(--darkgray);
 }
