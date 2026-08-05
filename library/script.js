@@ -51,6 +51,17 @@ function displayBooks() {
     libraryContainer.appendChild(emptyMessage);
     return;
   }
+
+  myLibrary.forEach((book, index) => {
+    console.log(`Book ${index + 1}`);
+    console.log(`ID: ${book.id}`);
+    console.log(`Title: ${book.title}`);
+    console.log(`Author: ${book.author}`);
+    console.log(`Pages: ${book.pages}`);
+    console.log(`Read: ${book.isRead ? "Yes" : "No"}`);
+    console.log("--------------------");
+  });
+  
 }
 
 
@@ -61,10 +72,16 @@ newBookButton.addEventListener("click", () => {
 
 bookForm.addEventListener("submit", (event) => {
   event.preventDefault();
+  const formData = new FormData(bookForm);
 
-  // Read form data.
-  // Add the book.
-  // Redisplay books.
+  const title = formData.get("title").trim();
+  const author = formData.get("author").trim();
+  const pages = Number(formData.get("pages"));
+  const isRead = formData.get("isRead") === "on";
+
+  addBookToLibrary(title, author, pages, isRead);
+  displayBooks();
+
   bookForm.reset();
   bookDialog.close();
 });
@@ -74,3 +91,6 @@ cancelButton.addEventListener("click", () => {
   bookForm.reset();
   bookDialog.close();
 });
+
+
+displayBooks();
