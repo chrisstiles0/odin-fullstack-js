@@ -52,14 +52,58 @@ function displayBooks() {
     return;
   }
 
-  myLibrary.forEach((book, index) => {
-    console.log(`Book ${index + 1}`);
-    console.log(`ID: ${book.id}`);
-    console.log(`Title: ${book.title}`);
-    console.log(`Author: ${book.author}`);
-    console.log(`Pages: ${book.pages}`);
-    console.log(`Read: ${book.isRead ? "Yes" : "No"}`);
-    console.log("--------------------");
+  myLibrary.forEach((book) => {
+    const bookCard = document.createElement("article");
+    bookCard.classList.add("book-card");
+
+    bookCard.dataset.bookId = book.id;
+
+    const title = document.createElement("h2");
+    title.textContent = book.title;
+
+    const author = document.createElement("p");
+    author.textContent = `Author: ${book.author}`;
+
+    const pages = document.createElement("p");
+    pages.textContent = `Pages: ${book.pages}`;
+
+    const readStatus = document.createElement("p");
+    readStatus.textContent = book.isRead ? "Status: Read" : "Status: Not read";
+
+    const toggleReadButton = document.createElement("button");
+    toggleReadButton.type = "button";
+    toggleReadButton.textContent = book.isRead
+      ? "Mark as unread"
+      : "Mark as read";
+
+    toggleReadButton.addEventListener("click", () => {
+      const bookId = bookCard.dataset.bookId;
+
+      toggleBookRead(bookId);
+      displayBooks();
+    });
+
+    const removeButton = document.createElement("button");
+    removeButton.type = "button";
+    removeButton.textContent = "Remove book";
+
+    removeButton.addEventListener("click", () => {
+      const bookId = bookCard.dataset.bookId;
+
+      removeBook(bookId);
+      displayBooks();
+    });
+
+    bookCard.append(
+      title,
+      author,
+      pages,
+      readStatus,
+      toggleReadButton,
+      removeButton
+    );
+
+    libraryContainer.appendChild(bookCard);
   });
   
 }
