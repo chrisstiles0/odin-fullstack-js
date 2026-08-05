@@ -17,8 +17,16 @@ function addBookToLibrary(title, author, pages, isRead) {
   myLibrary.push(newBook);
 }
 
+function removeBook(bookId) {
+  const index = myLibrary.findIndex((book) => book.id === bookId);
+
+  if (index !== -1) {
+    myLibrary.splice(index, 1);
+  }
+}
+
 function displayBooks() {
-  console.log(myLibrary) //placeholder
+
 }
 
 // DOM selections
@@ -40,9 +48,3 @@ bookForm.addEventListener("submit", (event) => {
   // Redisplay books.
 });
 
-
-
-addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 310, true);
-addBookToLibrary("Dune", "Frank Herbert", 412, false);
-
-displayBooks();
