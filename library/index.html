@@ -7,61 +7,67 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div>
-        <button id="new-book-button" type="button">New Book</button>
 
-        <dialog id="book-dialog">
+    <button id="new-book-button" type="button">New Book</button>
+
+    <dialog id="book-dialog">
         <form id="book-form">
             <h2>Add a New Book</h2>
 
             <div class="form-group">
-            <label for="title">Title</label>
-            <input
-                type="text"
-                id="title"
-                name="title"
-                required
-            >
+                <label for="title">Title</label>
+                <input
+                    type="text"
+                    id="title"
+                    name="title"
+                    required
+                >
             </div>
 
             <div class="form-group">
-            <label for="author">Author</label>
-            <input
-                type="text"
-                id="author"
-                name="author"
-                required
-            >
+                <label for="author">Author</label>
+                <input
+                    type="text"
+                    id="author"
+                    name="author"
+                    required
+                >
             </div>
 
             <div class="form-group">
-            <label for="pages">Number of pages</label>
-            <input
-                type="number"
-                id="pages"
-                name="pages"
-                min="1"
-                required
-            >
+                <label for="pages">Number of pages</label>
+                <input
+                    type="number"
+                    id="pages"
+                    name="pages"
+                    min="1"
+                    required
+                >
             </div>
 
             <div class="form-group checkbox-group">
-            <input
-                type="checkbox"
-                id="is-read"
-                name="isRead"
-            >
-            <label for="is-read">I have read this book</label>
+                <input
+                    type="checkbox"
+                    id="is-read"
+                    name="isRead"
+                >
+                <label for="is-read">I have read this book</label>
             </div>
 
             <div class="form-actions">
-            <button type="button" id="cancel-button">Cancel</button>
-            <button type="submit">Add Book</button>
+                <button type="button" id="cancel-button">Cancel</button>
+                <button type="submit">Add Book</button>
             </div>
         </form>
-        </dialog>
+    </dialog>
 
-    </div>
+    <main>
+        <h1>My Library</h1>
+        <div id="library-container"></div>
+    </main>
+
+
+    
     <script src="script.js"></script>
 </body>
 </html>
