@@ -23,7 +23,43 @@ Gameboard.prototype.setCell = function (x, y, state) {
     return true;
 }
 
+function GameController(gameboard) {
+    this.gameboard = gameboard;
+    this.currentPlayer = Object.keys(cellState)[1]; 
+}
+
+GameController.prototype.switchPlayer = function () {
+    this.currentPlayer =
+        this.currentPlayer === cellState.X
+            ? cellState.O
+            : cellState.X;
+};
+
+GameController.prototype.playTurn = function (x, y) {
+    const validMove = this.gameboard.setCell(
+        x,
+        y,
+        this.currentPlayer
+    );
+
+    if (validMove) {
+        this.switchPlayer();
+    }
+
+    return validMove;
+}
+
+
+
+
 // TEST
-const gb = new Gameboard(3, 3);
-gb.setCell(1, 2, cellState.X);
-console.log(gb.board);
+
+const board = new Gameboard(3, 3);
+const game = new GameController(board);
+
+game.playTurn(0,0)
+game.playTurn(0,0)//should not be O
+game.playTurn(1,1)
+game.playTurn(1,2)
+
+console.log(board.board);
