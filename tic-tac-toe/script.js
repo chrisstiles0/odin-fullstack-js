@@ -33,7 +33,32 @@ const gameboard = (() => {
 
 
 const gameController = (() => {
-    let currentPlayer = cellState.X
+    let currentPlayer = cellState.X;
+
+    const switchPlayer = () => {
+        currentPlayer = 
+            currentPlayer === cellState.X
+                ? cellState.O
+                : cellState.X;
+    };
+
+    const playTurn = (x, y) => {
+        const validMove = gameboard.setCell(x, y, currentPlayer);
+
+        if (validMove) {switchPlayer()};
+
+        return validMove;
+    };
+
+    const checkWin = () => {
+
+    };
+    
+    return {
+        playTurn,
+        getCurrentPlayer,
+        checkWin
+    };
 
 })();
 
