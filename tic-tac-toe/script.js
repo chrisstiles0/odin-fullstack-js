@@ -16,7 +16,7 @@ const gameboard = (() => {
     );
 
     const setCell = (x, y, state) => {
-        if (board[x][y] !== cellState.EMPTY) {
+        if (board[y][x] !== cellState.EMPTY) {
             return false;
         }
 
@@ -28,10 +28,19 @@ const gameboard = (() => {
 
     const getBoard = () => board;
 
+    const reset = () => {
+        for (let y = 0; y < board.length; y++) {
+            for (let x = 0; x < board[y].length; x++) {
+                board[y][x] = cellState.EMPTY;
+            }
+        }
+    };
+
     return {
         setCell,
         getCell,
-        getBoard
+        getBoard,
+        reset
     };
 
 })();
@@ -39,6 +48,7 @@ const gameboard = (() => {
 
 const gameController = (() => {
     let currentPlayer = cellState.X;
+    let hasWinner = false;
 
     const switchPlayer = () => {
         currentPlayer = 
@@ -48,6 +58,10 @@ const gameController = (() => {
     };
 
     const playTurn = (x, y) => {
+        if (hasWinner) {
+            return false;
+        }
+
         const validMove = gameboard.setCell(x, y, currentPlayer);
 
         if (!validMove) {
@@ -55,7 +69,7 @@ const gameController = (() => {
         }
 
         if (checkWin(x, y, currentPlayer)) {
-            console.log("win");
+            hasWinner = true;
             return true;
         }
 
@@ -63,7 +77,15 @@ const gameController = (() => {
         return true;
     };
 
+    const reset = () => {
+        currentPlayer = cellState.X;
+        hasWinner = false;
+        gameboard.reset();
+    };
+
     const getCurrentPlayer = () => currentPlayer;
+
+    const getHasWinner = () => hasWinner;
 
     const checkWin = (x, y, player) => {
         const directions = [
@@ -107,19 +129,56 @@ const gameController = (() => {
     return {
         playTurn,
         getCurrentPlayer,
-        checkWin
+        getHasWinner,
+        checkWin,
+        reset
     };
 
 })();
 
 
 
-// TEST
-gameController.playTurn(0,0);
-gameController.playTurn(0,0);
-gameController.playTurn(1,0);
-gameController.playTurn(1,1);
-gameController.playTurn(2,1);
+
+const boardElement = document.querySelector("#gameboard");
+const statusElement = document.querySelector("#status");
+const resetButton = document.querySelector("#reset-button");
 
 
-console.log(gameboard.getBoard());
+const displayBoard = () => {
+    boardElement.innerHTML = "";
+
+    const boardArray = gameboard.getBoard();
+
+    for (let y = 0; y < boardArray.length; y++) {
+        for (let x = 0; x < boardArray[y].length; x++) {
+            const cell = document.createElement("button");
+
+            cell.textContent = boardArray[y][x];
+
+            cell.addEventListener("click", () => {
+                const validMove = gameController.playTurn(x, y);
+
+                if (validMove) {
+                    displayBoard();
+                }
+            });
+
+            boardElement.appendChild(cell);
+        }
+    }
+
+    if (gameController.getHasWinner()) {
+        statusElement.textContent =
+            `${gameController.getCurrentPlayer()} wins!`;
+    } else {
+        statusElement.textContent =
+            `${gameController.getCurrentPlayer()}'s turn`;
+    }
+}
+
+resetButton.addEventListener("click", () => {
+    gameController.reset();
+    displayBoard();
+});
+
+displayBoard();
