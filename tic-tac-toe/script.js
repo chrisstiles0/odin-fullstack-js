@@ -28,6 +28,14 @@ const gameboard = (() => {
 
     const getBoard = () => board;
 
+    const isBoardFull = () => {
+        let hasEmpty = false;
+        for (let y = 0; y < board.length; y++) {
+            hasEmpty = hasEmpty || board[y].includes(cellState.EMPTY)
+        }
+        return !hasEmpty;
+    }
+
     const reset = () => {
         for (let y = 0; y < board.length; y++) {
             for (let x = 0; x < board[y].length; x++) {
@@ -40,6 +48,7 @@ const gameboard = (() => {
         setCell,
         getCell,
         getBoard,
+        isBoardFull,
         reset
     };
 
@@ -48,7 +57,7 @@ const gameboard = (() => {
 
 const gameController = (() => {
     let currentPlayer = cellState.X;
-    let hasWinner = false;
+    let winner = null;
 
     const switchPlayer = () => {
         currentPlayer = 
@@ -58,7 +67,7 @@ const gameController = (() => {
     };
 
     const playTurn = (x, y) => {
-        if (hasWinner) {
+        if (winner) {
             return false;
         }
 
@@ -69,7 +78,7 @@ const gameController = (() => {
         }
 
         if (checkWin(x, y, currentPlayer)) {
-            hasWinner = true;
+            winner = currentPlayer;
             return true;
         }
 
@@ -79,13 +88,13 @@ const gameController = (() => {
 
     const reset = () => {
         currentPlayer = cellState.X;
-        hasWinner = false;
+        winner = null;
         gameboard.reset();
     };
 
     const getCurrentPlayer = () => currentPlayer;
 
-    const getHasWinner = () => hasWinner;
+    const getWinner = () => winner;
 
     const checkWin = (x, y, player) => {
         const directions = [
@@ -129,7 +138,7 @@ const gameController = (() => {
     return {
         playTurn,
         getCurrentPlayer,
-        getHasWinner,
+        getWinner,
         checkWin,
         reset
     };
@@ -167,9 +176,12 @@ const displayBoard = () => {
         }
     }
 
-    if (gameController.getHasWinner()) {
+    if (gameController.getWinner()) {
         statusElement.textContent =
             `${gameController.getCurrentPlayer()} wins!`;
+    } else if (gameboard.isBoardFull()) {
+        statusElement.textContent = 
+            "Draw!";
     } else {
         statusElement.textContent =
             `${gameController.getCurrentPlayer()}'s turn`;
